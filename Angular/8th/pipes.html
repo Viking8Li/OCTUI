@@ -13,7 +13,7 @@
 </head>
 <body ng-controller="myController" class="container">
   
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Name</th>
@@ -25,16 +25,16 @@
         </thead>
         <tbody>
             <tr ng-repeat="employee in employees">
-                <td>{{employee.name}}</td>
-                <td>{{employee.dateOfBirth}}</td>
+                <td>{{employee.name | uppercase}}</td>
+                <td>{{employee.dateOfBirth | date:"dd/MMM/yyyy"}}</td>
                 <td>{{employee.gender}}</td>
-                <td>{{employee.salary}}</td>
-                <td>{{employee.salary}}</td>
+                <td>{{employee.salary | number:2}}</td>
+                <td>{{employee.salary | currency:"€ "}}</td>
             </tr>
         </tbody>
     </table>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.js"></script>
-    <script src="first.js"></script>
+    <script src="pipes.js"></script>
 </body>
 </html>
