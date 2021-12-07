@@ -4,7 +4,9 @@ var myApp = angular
                       var country = {
                           name : "USA",
                           capital : "Washington DC",
-                          flag : ""
+                          flag : "Images/flag.jpg"
                       }
+
+                      $scope.country = country
                   })
                   ;

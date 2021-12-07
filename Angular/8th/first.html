@@ -11,12 +11,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <title>Document</title>
 </head>
-<body class="container">
-    <div  ng-controller="myController2">
-        <h2>{{message}}</h2>
+<body ng-controller="myController" class="container">
+    <div>
+        Name:{{country.name}}
     </div>
-    <div ng-controller="myController1">
-        <h2>{{message}}</h2>
+    <div>
+        Capital:{{country.capital}}
+    </div>
+    <div>
+       <img src="{{country.flag}}" style="height:100px;width:100px" />
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.js"></script>
     <script src="first.js"></script>
