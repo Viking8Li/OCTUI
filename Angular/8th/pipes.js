@@ -23,5 +23,5 @@ var myApp = angular
                             gender: "Male", salary: 60000
                         }
                     ];
-                  })
-                  ;
+                    $scope.employees = employees;
+                  });
