@@ -24,4 +24,5 @@ var myApp = angular
                         }
                     ];
                     $scope.employees = employees;
+                    $scope.rowCount = 3;
                   });
