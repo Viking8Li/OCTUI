@@ -12,11 +12,15 @@
     <title>Document</title>
 </head>
 <body ng-controller="msg" class="container">
-   <div message text="first">
+   <!-- <div message text="first">
         <div message text="second">
                 <div message text="third">
                 </div>
         </div>
+   </div> -->
+
+   <div message text="{{i}}" ng-repeat="i in [1,2,3,4,5]">
+            {{i}}
    </div>
    
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.js"></script>
