@@ -19,5 +19,9 @@ var myApp = angular
                     $scope.modify3rdEmp = function(){
                         $scope.emps[2].ename = "Test"
                     }
+
+                    $scope.$watch('emps', function(newValue, oldValue){
+                        console.log("No. of Employees:"+$scope.emps.length)
+                    })
 });
 
