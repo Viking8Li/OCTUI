@@ -10,12 +10,14 @@ var myApp = angular
                         {empno:"1005", ename:"Jhonny"}
                     ]
                         
+                    $scope.addEmp = function(){
+                        var newEmpNo = 1000+$scope.emps.length + 1;
+                        var newEname = "ename"+newEmpNo;
 
-                    // //reference / equality
-                    // $scope.$watch("o", function(newValue, oldValue){
-                    //     if(newValue != oldValue){
-                    //         $scope.o.c = $scope.o.a * $scope.o.b;
-                    //     }
-                    // }, true)
+                        $scope.emps.push({empno:newEmpNo, ename:newEname})
+                    }
+                    $scope.modify3rdEmp = function(){
+                        $scope.emps[2].ename = "Test"
+                    }
 });
 
