@@ -21,7 +21,12 @@ var myApp = angular
                     }
 
                     $scope.$watch('emps', function(newValue, oldValue){
-                        console.log("No. of Employees:"+$scope.emps.length)
-                    })
+                        // console.log(newValue+" "+oldValue)
+                        // if(newValue != oldValue)
+                            console.log("No. of Employees:"+$scope.emps.length)
+                    }, true);
+                    // $scope.$watchCollection('emps', function(newValue, oldValue){
+                    //     console.log("No. of Employees:"+$scope.emps.length)
+                    // })
 });
 
