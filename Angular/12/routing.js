@@ -10,6 +10,18 @@ myApp.config(['$routeProvider', function($routeProvider){
         .when('/second-msg',{
             template:'<b>This is second message</b>'
         })
+        .when('/',{
+            template:'<b>Welcome to the App</b>'
+        })
+        .otherwise({
+            // template:'<b>Wrong Path</b>'
+            // redirectTo:"/"
+
+            redirectTo: function(){
+                alert("Wrong Path")
+                return "/"
+            }
+        })
 }])
 
 myApp.controller('message1', ['$scope', function($scope){
