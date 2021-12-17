@@ -41,3 +41,24 @@ var fs = require('fs')
 //         console.log("File deleted successfully")
 //     }
 // })
+
+
+//delete a dir
+// fs.mkdir('folder', (err)=>{
+//         if(err!=null){
+//             console.log(err.message)
+//         }
+//         else{
+//             console.log("Dir created successfully")
+//         }
+// })
+
+// fs.rmdir('folder', (err)=>{
+//             if(err!=null){
+//                 console.log(err.message)
+//             }
+//             else{
+//                 console.log("Dir removed successfully")
+//             }
+// })
+
