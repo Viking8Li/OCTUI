@@ -1,0 +1,3 @@
+Windows Azure Infrastructure Services provides cloud-based storage, virtual networks and virtual machines that can be provisioned on-demand to support lab, pilot or production application workloads.
+
+In this Hands-on Lab, you’ll build a functional Dev/Test/Production environment to run your business on that consists of three virtual machines on a common virtual network running in Windows Azure Infrastructure Services.
