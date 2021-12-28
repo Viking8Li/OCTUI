@@ -40,6 +40,18 @@ app.post('/contactlist', function(req, res){
     })
 })
 
+app.delete('/contactlist/:id', function(req, res){
+    var id = req.params.id;
+    db.contactlist.remove({_id:mongojs.ObjectId(id)}, function(err, doc){
+        if(err!=null){
+            console.log(err.message)
+        }
+        else{
+            res.json(doc)
+        }
+    })
+})
+
 
 app.listen(3000, (err)=>{
     if(err==null)
