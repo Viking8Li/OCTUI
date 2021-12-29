@@ -16,8 +16,8 @@ const posts = [
     }
 ]
 
-app.get('/posts', (req, res)=>{
-    res.json(posts)
+app.get('/posts', authenticateToken, (req, res)=>{
+    res.json(posts.filter(post => post.username === req.user.name))
 })
 
 app.post('/login', (req, res) => {
@@ -29,5 +29,18 @@ app.post('/login', (req, res) => {
     const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET)
     res.json({accessToken: accessToken})
 })
+
+function authenticateToken(req, res, next){
+    const authHeader = req.headers['authorization']
+    // authorization : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9obiIsImlhdCI6MTY0MDgwNjMzOH0.7N-UxUw3o9RaECJnB8-gGq-hvhDa39S9JSSEEQtp6Vg
+    const token = authHeader && authHeader.split(' ')[1]
+    if(token == null) return res.sendStatus(401)
+    
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user)=>{
+        if(err) return res.sendStatus(403)
+        req.user = user
+        next()
+    })
+}
 
 app.listen(3000)
