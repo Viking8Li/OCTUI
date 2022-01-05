@@ -1,4 +1,5 @@
 let gulp = require('gulp')
+let imagemin = require('gulp-imagemin')
 let jshint = require('gulp-jshint')
 let cleanCSS = require('gulp-clean-css')
 let rename = require('gulp-rename')
@@ -10,7 +11,8 @@ let babelify = require('babelify')
 let source = require('vinyl-source-stream')
 let buffer = require('vinyl-buffer')
 let uglify = require('gulp-uglify')
-let imagemin = require('gulp-imagemin')
+
+// import imagemin from 'gulp-imagemin'
 
 
 //gulp --tasks lists all tasks
@@ -163,4 +165,11 @@ gulp.task('image', function(done){
         .pipe(imagemin())
         .pipe(gulp.dest(imgDEST))
     done()
+})
+
+var jsWatch = './src/js/**/*.js'
+
+gulp.task('watch', function(){
+    // gulp.watch(jsWatch, gulp.series('styles'))
+    gulp.watch(jsWatch, gulp.series('js'))
 })

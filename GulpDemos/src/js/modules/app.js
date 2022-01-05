@@ -1,6 +1,6 @@
 class App{
     constructor(){
-        console.log('App Initializer')
+        console.log('App Initializers')
     }
 }
 
