@@ -10,6 +10,7 @@ let babelify = require('babelify')
 let source = require('vinyl-source-stream')
 let buffer = require('vinyl-buffer')
 let uglify = require('gulp-uglify')
+let imagemin = require('gulp-imagemin')
 
 
 //gulp --tasks lists all tasks
@@ -152,4 +153,14 @@ gulp.task('js', function(done){
         .pipe(gulp.dest(jsDEST))
     });
     done();
+})
+
+let imgSrc = './src/images/*'
+let imgDEST = './dist/images'
+
+gulp.task('image', function(done){
+    gulp.src(imgSrc)
+        .pipe(imagemin())
+        .pipe(gulp.dest(imgDEST))
+    done()
 })

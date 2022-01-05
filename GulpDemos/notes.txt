@@ -11,6 +11,9 @@ gulp-sass(4.1.0)
 gulp-sourcemaps(3.0.0)
 gulp-autoprefixer(7.0.1)
 
+5. image minification
+gulp-imagemin
+
 5. transpile babelify + minify + rename + autoprefixer + sourcemaps
 babel-core@6.26.3
 babel-preset-env@1.7.0
