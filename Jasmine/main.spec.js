@@ -20,8 +20,51 @@ describe('Main', () => {
                 expect(window.updateResult).toHaveBeenCalledWith('Expression not recognized')
                 expect(window.updateResult).toHaveBeenCalledTimes(1)
             });
-            xit('calls add');
-            xit('calls subtract');
+            it('calls divide', function(){
+                const spy = spyOn(Calculator.prototype,'divide')
+                calculate('3/2')
+
+                expect(spy).toHaveBeenCalled();
+                expect(spy).not.toHaveBeenCalledWith(3);
+                expect(spy).toHaveBeenCalledWith(2)
+                expect(spy).toHaveBeenCalledTimes(1);
+            });
+            it('calls updateResult(callThrough)', function(){
+                spyOn(window, 'updateResult')
+                spyOn(Calculator.prototype,'multiply').and.callThrough()
+                calculate('5*5');
+                expect(window.updateResult).toHaveBeenCalled();
+                expect(window.updateResult).toHaveBeenCalledWith(25);
+            })
+            it('calls updateResult(callFake)', function(){
+                spyOn(window, 'updateResult')
+                spyOn(Calculator.prototype,'multiply').and.callFake(function(number){
+                    return 'it works'
+                })
+                calculate('5*5');
+                expect(window.updateResult).toHaveBeenCalled();
+                expect(window.updateResult).toHaveBeenCalledWith('it works');
+            })
+            it('calls updateResult (return value)', function(){
+                spyOn(window, 'updateResult')
+                spyOn(Calculator.prototype,'multiply').and.returnValue('whatever');
+                calculate('5*5');
+                expect(window.updateResult).toHaveBeenCalled();
+                expect(window.updateResult).toHaveBeenCalledWith('whatever');
+            })
+            it('calls updateResult (return value)', function(){
+                spyOn(window, 'updateResult')
+                spyOn(Calculator.prototype,'multiply').and.returnValues(null,'whatever');
+                calculate('5*5');
+                expect(window.updateResult).toHaveBeenCalled();
+                expect(window.updateResult).toHaveBeenCalledWith(null);
+            })
+            it('desnt handle errors', function(){
+                spyOn(Calculator.prototype,'multiply').and.throwError('some error')
+                
+                expect(function(){calculate('5*5')}).toThrowError('some error');
+            })
+            
         })
         describe('updateResult()', ()=>{
             let element;
