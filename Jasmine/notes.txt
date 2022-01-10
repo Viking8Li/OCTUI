@@ -1,0 +1,3 @@
+1. Jasmine has test double functions called spies
+2. A spy can stub(fake) any function and track all calls to it and all arguments
+3. A spy only exist in the describe or it blocks
