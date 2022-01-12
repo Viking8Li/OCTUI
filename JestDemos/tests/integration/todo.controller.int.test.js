@@ -11,6 +11,6 @@ describe(endpointUrl, () => {
             
         expect(response.statusCode).toBe(201);
         expect(response.body.title).toBe(newTodo.title)
-        expect(respone.body.done).toBe(newTodo.done)
+        expect(response.body.done).toBe(newTodo.done)
     })
 });
