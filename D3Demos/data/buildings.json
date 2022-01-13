@@ -18,5 +18,13 @@
 	{
 		"name": "Lotte World Tower",
 		"height": "544.5"
-	}
+	},
+    {
+        "name":"CTF Finance Center",
+        "height":"530"
+    },
+    {
+        "name":"Dummy Center",
+        "height":"630"
+    }
 ]
