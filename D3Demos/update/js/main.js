@@ -2,6 +2,8 @@ const MARGIN = { LEFT: 100, RIGHT: 10, TOP: 10, BOTTOM: 100 }
 const WIDTH = 600 - MARGIN.LEFT - MARGIN.RIGHT
 const HEIGHT = 400 - MARGIN.TOP - MARGIN.BOTTOM
 
+let flag = true
+
 const svg = d3.select("#chart-area").append("svg")
   .attr("width", WIDTH + MARGIN.LEFT + MARGIN.RIGHT)
   .attr("height", HEIGHT + MARGIN.TOP + MARGIN.BOTTOM)
@@ -19,14 +21,14 @@ g.append("text")
   .text("Month")
 
 // Y label
-g.append("text")
+const yLabel = g.append("text")
   .attr("class", "y axis-label")
   .attr("x", - (HEIGHT / 2))
   .attr("y", -60)
   .attr("font-size", "20px")
   .attr("text-anchor", "middle")
   .attr("transform", "rotate(-90)")
-  .text("Revenue ($)")
+  
 
 const x = d3.scaleBand()
   .range([0, WIDTH])
@@ -46,16 +48,26 @@ const yAxisGroup = g.append("g")
 d3.csv("data/revenues.csv").then(data => {
   data.forEach(d => {
     d.revenue = Number(d.revenue)
+    d.profit = Number(d.profit)
   })
+
+  console.log(data)
+  
   d3.interval(() => {
-     update(data)
+     flag = !flag
+     const newData = flag ? data : data.slice(1)
+     update(newData)
   }, 1000)
   update(data);
 })
 
 function update(data){
+  
+  const value = flag ? "profit":"revenue";
+  const t  = d3.transition().duration(750);
+
   x.domain(data.map(d => d.month))   
-  y.domain([0, d3.max(data, d => d.revenue)])
+  y.domain([0, d3.max(data, d => d[value])])
 
   const xAxisCall = d3.axisBottom(x)
   xAxisGroup.call(xAxisCall)
@@ -72,26 +84,44 @@ function update(data){
   yAxisGroup.call(yAxisCall)
 
   //JOIN new data with old elements
-  const rects = g.selectAll("rect")
-    .data(data)
+  const rects = g.selectAll("circle")
+    .data(data, d=>d.month)
 
   //EXIT old elements not present in new data
-  rects.exit().remove()
+  rects.exit()
+    .attr("fill","red")
+    .transition(t)
+        // .attr("height",0)
+        .attr("cy", y(0))
+    .remove()
 
   //UPDATE old elements present in new data
-  rects
-   .attr("y", d => y(d.revenue))
-   .attr("x", (d) => x(d.month))
-   .attr("width", x.bandwidth)
-   .attr("height", d => HEIGHT - y(d.revenue))
+//   rects
+//    .attr("y", d => y(d[value]))
+//    .attr("x", (d) => x(d.month))
+//    .attr("width", x.bandwidth)
+//    .attr("height", d => HEIGHT - y(d[value]))
 
   //ENTER new elements present in new data
-  rects.enter().append("rect")
-    .attr("y", d => y(d.revenue))
-    .attr("x", (d) => x(d.month))
-    .attr("width", x.bandwidth)
-    .attr("height", d => HEIGHT - y(d.revenue))
+  rects.enter().append("circle")
     .attr("fill", "blue")
+    .attr("cy",y(0))
+    .attr("r",7)
+    // .attr("height",0)
+    //AND UPDATE
+    .merge(rects)
+    .transition(t)
+    .attr("cy", d => y(d[value]))
+    .attr("cx", (d) => x(d.month))
+    // .attr("width", x.bandwidth)
+    // .attr("height", d => HEIGHT - y(d[value]))
+   
+    
+
+    //merge => update + enter selection
+
+    const text = flag ? "Profit ($)":"Revenue ($)"
+    yLabel.text(text)
 }
 
 
