@@ -28,26 +28,37 @@ g.append("text")
   .attr("transform", "rotate(-90)")
   .text("Revenue ($)")
 
+const x = d3.scaleBand()
+  .range([0, WIDTH])
+  .paddingInner(0.3)
+  .paddingOuter(0.2)
+
+const y = d3.scaleLinear()
+  .range([HEIGHT, 0])
+
+const xAxisGroup = g.append("g")
+  .attr("class", "x axis")
+  .attr("transform", `translate(0, ${HEIGHT})`)
+
+const yAxisGroup = g.append("g")
+   .attr("class", "y axis")
+
 d3.csv("data/revenues.csv").then(data => {
   data.forEach(d => {
     d.revenue = Number(d.revenue)
   })
+  d3.interval(() => {
+     update(data)
+  }, 1000)
+  update(data);
+})
 
-  const x = d3.scaleBand()
-    .domain(data.map(d => d.month))
-    .range([0, WIDTH])
-    .paddingInner(0.3)
-    .paddingOuter(0.2)
-  
-  const y = d3.scaleLinear()
-    .domain([0, d3.max(data, d => d.revenue)])
-    .range([HEIGHT, 0])
+function update(data){
+  x.domain(data.map(d => d.month))   
+  y.domain([0, d3.max(data, d => d.revenue)])
 
   const xAxisCall = d3.axisBottom(x)
-  g.append("g")
-    .attr("class", "x axis")
-    .attr("transform", `translate(0, ${HEIGHT})`)
-    .call(xAxisCall)
+  xAxisGroup.call(xAxisCall)
     .selectAll("text")
       .attr("y", "10")
       .attr("x", "-5")
@@ -57,21 +68,18 @@ d3.csv("data/revenues.csv").then(data => {
   const yAxisCall = d3.axisLeft(y)
     .ticks(3)
     .tickFormat(d => d + "m")
-  g.append("g")
-    .attr("class", "y axis")
-    .call(yAxisCall)
 
-  const rects = g.selectAll("rect")
-    .data(data)
+  yAxisGroup.call(yAxisCall)
+
+//   const rects = g.selectAll("rect")
+//     .data(data)
   
-  rects.enter().append("rect")
-    .attr("y", d => y(d.revenue))
-    .attr("x", (d) => x(d.month))
-    .attr("width", x.bandwidth)
-    .attr("height", d => HEIGHT - y(d.revenue))
-    .attr("fill", "grey")
+//   rects.enter().append("rect")
+//     .attr("y", d => y(d.revenue))
+//     .attr("x", (d) => x(d.month))
+//     .attr("width", x.bandwidth)
+//     .attr("height", d => HEIGHT - y(d.revenue))
+//     .attr("fill", "blue")
+}
 
-  d3.interval(() => {
-    console.log("Hello World")
-  }, 1000)
-})
+
