@@ -48,11 +48,7 @@ console.log(x("Lotte World Tower"))
 //Linear Scale
 const y = d3.scaleLinear()
             .domain([0, d3.max(data, d => d.height)])
-            .range([0,HEIGHT])
-
-
-
-
+            .range([HEIGHT,0])
 
 //scales 
 const xAxisCall = d3.axisBottom(x)
@@ -80,10 +76,10 @@ const rects = g.selectAll("rect")
 
 //Enter selection(enter the rects into the DOM)
 rects.enter().append("rect")
-            .attr("y",0)
+            .attr("y",d => y(d.height))
             .attr("x", (d,i) => x(d.name))
             .attr("width", x.bandwidth)
-            .attr("height", d => y(d.height))
+            .attr("height", d => HEIGHT - y(d.height))
             .attr("fill", "blue")
 
 });
