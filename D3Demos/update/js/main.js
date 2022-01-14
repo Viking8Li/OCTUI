@@ -71,15 +71,27 @@ function update(data){
 
   yAxisGroup.call(yAxisCall)
 
-//   const rects = g.selectAll("rect")
-//     .data(data)
-  
-//   rects.enter().append("rect")
-//     .attr("y", d => y(d.revenue))
-//     .attr("x", (d) => x(d.month))
-//     .attr("width", x.bandwidth)
-//     .attr("height", d => HEIGHT - y(d.revenue))
-//     .attr("fill", "blue")
+  //JOIN new data with old elements
+  const rects = g.selectAll("rect")
+    .data(data)
+
+  //EXIT old elements not present in new data
+  rects.exit().remove()
+
+  //UPDATE old elements present in new data
+  rects
+   .attr("y", d => y(d.revenue))
+   .attr("x", (d) => x(d.month))
+   .attr("width", x.bandwidth)
+   .attr("height", d => HEIGHT - y(d.revenue))
+
+  //ENTER new elements present in new data
+  rects.enter().append("rect")
+    .attr("y", d => y(d.revenue))
+    .attr("x", (d) => x(d.month))
+    .attr("width", x.bandwidth)
+    .attr("height", d => HEIGHT - y(d.revenue))
+    .attr("fill", "blue")
 }
 
 
