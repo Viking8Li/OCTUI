@@ -1,8 +1,12 @@
 //DOMContentLoaded window.onload
 document.addEventListener('DOMContentLoaded', ()=>{
     Highcharts.chart('container',{
-        type:{
-            type:'column'
+        chart:{
+            // type:'column'
+            // type:'bar'
+            // type:'scatter'
+            // type:'area'
+            type:'areaspline'
         },
         xAxis:{
             categories:['Apples', 'Bananas', 'Grapes']
