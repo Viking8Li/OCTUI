@@ -1,4 +1,10 @@
 1. ng g c test
 2. Property Binding
+Attribute Vs Property
+Attribute-> HTML
+Property -> DOM
+
+Attribute init Property. Attribute cannot be changed
+
 3. Class Binding
 4. Style Binding
