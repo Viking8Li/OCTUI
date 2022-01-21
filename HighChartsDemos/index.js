@@ -1,16 +1,32 @@
 //DOMContentLoaded window.onload
 document.addEventListener('DOMContentLoaded', ()=>{
     Highcharts.chart('container',{
+        // tooltip:{
+        //     animation:false,
+        //     backgroundColor:'#333333',
+        //     borderColor:'#f01f11',
+        //     borderRadius:20,
+        //     followPointer:true,
+        //     style:{
+        //         color:'#ffffff'
+        //     }
+        // },
+        // tooltip:{
+        //     formatter(){
+        //         return `<b>X value</b> -${this.x}. <b>Y value</b> - ${this.y}`
+        //     }
+        // },
         tooltip:{
-            animation:false,
-            backgroundColor:'#333333',
-            borderColor:'#f01f11',
-            borderRadius:20,
-            followPointer:true,
-            style:{
-                color:'#ffffff'
+            shared:true,
+            formatter(){
+                let s = `<b>X is:</b>${this.x}`;
+                this.points.forEach(function(point){
+                    s += `<br><b>Y is:</b> ${point.y}`
+                });
+                return s;
             }
         },
+        colors:['#1C110A','#e4d6a7','#e9b44c','#9b2915','#50a2a7'],
         credits:{
             // enabled:false
             text:'My Custom Credit',
