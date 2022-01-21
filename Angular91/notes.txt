@@ -8,3 +8,7 @@ Attribute init Property. Attribute cannot be changed
 
 3. Class Binding
 4. Style Binding
+5. Template Reference Variable
+6. 2 way binding FormsModule + name attribute
+7 . Structural(DOM) Directives(ngIf, ngSwitch, ngFor)
+ngContainer, ngTemplate
