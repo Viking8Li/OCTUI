@@ -1,0 +1,4 @@
+1. ng g c test
+2. Property Binding
+3. Class Binding
+4. Style Binding
