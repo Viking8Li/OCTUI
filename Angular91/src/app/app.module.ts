@@ -9,6 +9,7 @@ import { StylBinComponent } from './styl-bin/styl-bin.component';
 import { TemRefVarComponent } from './tem-ref-var/tem-ref-var.component';
 import { FormsModule } from '@angular/forms';
 import { StrDirComponent } from './str-dir/str-dir.component';
+import { SignupComponentComponent } from './signup-component/signup-component.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { StrDirComponent } from './str-dir/str-dir.component';
     ClsBinComponent,
     StylBinComponent,
     TemRefVarComponent,
-    StrDirComponent
+    StrDirComponent,
+    SignupComponentComponent
   ],
   imports: [
     BrowserModule,
