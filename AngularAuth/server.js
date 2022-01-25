@@ -8,6 +8,7 @@ app.use(express.json())
 //localhost:3000/api
 app.use('/api', api)
 
+//localhost:3000
 app.get('/', function(req, res){
     res.send("Hello World From Server");
 })

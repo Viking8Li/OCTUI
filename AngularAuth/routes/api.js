@@ -33,15 +33,17 @@ function verifyToken(req, res, next){
   }
 }
 
+// localhost:3000/api
 router.get('/', (req, res)=>{
     res.send('From API route')
 })
 
+// localhost:3000/api/register
 router.post('/register', (req,res) => {
     console.log("Register Called")
-    let userData = req.body
+    let userData = req.body//email + pass
     let user = new User(userData)
-    user.save((error, registeredUser)=>{
+    user.save((error, registeredUser)=>{ //email + pass + _id
         if(error){
             console.log(error)
         }
@@ -55,8 +57,9 @@ router.post('/register', (req,res) => {
 })
 
 //Login API
+// localhost:3000/api/login
 router.post('/login', (req,res) => {
-    let userData = req.body
+    let userData = req.body //email + pass
 
     //Mongoose Function
     User.findOne({email:userData.email}, (error, user)=>{
@@ -127,7 +130,7 @@ router.get('/events', (req, res)=>{
 })
 
 
-router.get('/special', verifyToken, (req, res)=>{
+router.get('/special',(req, res)=>{
     let events = [
         {
             "_id": "1",
