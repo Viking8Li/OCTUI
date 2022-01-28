@@ -1,6 +1,6 @@
 const express = require('express')
 const api = require('./routes/api')
-const cors = require('cors')
+const cors = require('cors')// front-4200 backend-3000
 
 const PORT = 3000
 const app = express()
