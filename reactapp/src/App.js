@@ -1,6 +1,10 @@
 import './App.css';
 import Counter from './components/Counter';
+import EventBind from './components/EventBind';
+import Listrendering from './components/Listrendering';
 import Message from './components/Message';
+import ParentComponent from './components/ParentComponent';
+import UserGreeting from './components/UserGreeting';
 import Welcome from './components/Welcome';
 import WelcomeClass from './components/WelcomeClass';
 
@@ -21,7 +25,15 @@ function App() {
 
         {/* <Message></Message> */}
 
-        <Counter></Counter>
+        {/* <Counter></Counter> */}
+
+        {/* <EventBind></EventBind> */}
+
+        {/* <ParentComponent></ParentComponent> */}
+
+        {/* <UserGreeting></UserGreeting> */}
+        
+        <Listrendering></Listrendering>
       </header>
     </div>
   );

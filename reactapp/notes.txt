@@ -12,3 +12,22 @@ Q. props vs state
 Q. why the call to super(props)
 
 5. Fragments
+6. Event Handling
+7. Event Binding
+8. Method as Props
+9. Conditional Rendering
+10. List Rendering
+
+
+11. Lifecycle hooks
+12. Pure Components
+13. HOC
+14. Refs
+15. Portals
+16. Error Boundaries
+17. Render Props
+18. Context API
+19. HTTP Calls
+20. Routing
+
+Hooks
