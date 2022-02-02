@@ -1,0 +1,14 @@
+1. JSX
+2. props
+3. Assignment(defult props)
+4. State
+
+Q. props vs state
+1. props are passed in - state is managed within the component
+2. props are immutable - state can be changed
+3. state in FC implemented using hooks - CC imlemented as this.state
+4. props in FC - this.props in CC
+
+Q. why the call to super(props)
+
+5. Fragments
