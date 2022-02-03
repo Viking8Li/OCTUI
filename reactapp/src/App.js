@@ -2,9 +2,12 @@ import './App.css';
 import Counter from './components/Counter';
 import EventBind from './components/EventBind';
 import Formhnadling from './components/Formhnadling';
+import Lifecycle from './components/Lifecycle';
 import Listrendering from './components/Listrendering';
 import Message from './components/Message';
+import ParentComp from './components/ParentComp';
 import ParentComponent from './components/ParentComponent';
+import PureComp from './components/PureComp';
 import UserGreeting from './components/UserGreeting';
 import Welcome from './components/Welcome';
 import WelcomeClass from './components/WelcomeClass';
@@ -36,8 +39,12 @@ function App() {
 
         {/* <Listrendering></Listrendering> */}
 
-        <Formhnadling></Formhnadling>
-        
+        {/* <Formhnadling></Formhnadling> */}
+
+        {/* <Lifecycle></Lifecycle> */}
+
+        <ParentComp></ParentComp>
+
       </header>
     </div>
   );

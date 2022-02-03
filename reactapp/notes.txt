@@ -21,6 +21,29 @@ Q. why the call to super(props)
 10a. Form Handling
 11. Lifecycle hooks
 12. Pure Components
+
+A regular compnent does not implement the shouldComponentUpdate method. It always returns true by default.
+A pure component implements shouldComponentUpdate with a shallow props and state comparison
+
+SC of prevState with currentState
+SC pf prevProps with currentProps
+
+Shallow comparison(SC)
+--Primitive Types
+a SC b returns true if a and b have the same value and are of the same Type
+"John" SC "John"
+
+--Complex Types
+a SC b returns true if a and b references the same exact object
+
+var a = {1,2,3}
+var b = {1,2,3}
+var c = a;
+
+a===b //false
+a===c //true
+
+
 13. HOC
 14. Refs
 15. Portals
