@@ -1,6 +1,7 @@
 import './App.css';
 import Counter from './components/Counter';
 import EventBind from './components/EventBind';
+import Formhnadling from './components/Formhnadling';
 import Listrendering from './components/Listrendering';
 import Message from './components/Message';
 import ParentComponent from './components/ParentComponent';
@@ -32,8 +33,11 @@ function App() {
         {/* <ParentComponent></ParentComponent> */}
 
         {/* <UserGreeting></UserGreeting> */}
+
+        {/* <Listrendering></Listrendering> */}
+
+        <Formhnadling></Formhnadling>
         
-        <Listrendering></Listrendering>
       </header>
     </div>
   );
