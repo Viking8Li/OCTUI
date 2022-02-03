@@ -1,13 +1,21 @@
 import './App.css';
+import ClickCounter from './components/ClickCounter';
 import Counter from './components/Counter';
+import ErrorBoundary from './components/ErrorBoundary';
 import EventBind from './components/EventBind';
+import FocusInput from './components/FocusInput';
 import Formhnadling from './components/Formhnadling';
+import FRParetnInput from './components/FRParetnInput';
+import Hero from './components/Hero';
+import HoverCounter from './components/HoverCounter';
 import Lifecycle from './components/Lifecycle';
 import Listrendering from './components/Listrendering';
 import Message from './components/Message';
 import ParentComp from './components/ParentComp';
 import ParentComponent from './components/ParentComponent';
+import PortalDemo from './components/PortalDemo';
 import PureComp from './components/PureComp';
+import RefsDemo from './components/RefsDemo';
 import UserGreeting from './components/UserGreeting';
 import Welcome from './components/Welcome';
 import WelcomeClass from './components/WelcomeClass';
@@ -43,7 +51,29 @@ function App() {
 
         {/* <Lifecycle></Lifecycle> */}
 
-        <ParentComp></ParentComp>
+        {/* <ParentComp></ParentComp> */}
+
+        {/* <RefsDemo></RefsDemo> */}
+
+        {/* <FocusInput></FocusInput> */}
+
+        {/* <FRParetnInput></FRParetnInput> */}
+
+       
+        {/* <ErrorBoundary>
+          <Hero heroName="Batman"></Hero>
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <Hero heroName="Superman"></Hero>
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <Hero heroName="Joker"></Hero>
+        </ErrorBoundary> */}
+
+        {/* <PortalDemo></PortalDemo> */}
+
+        <ClickCounter></ClickCounter>
+        <HoverCounter></HoverCounter>
 
       </header>
     </div>

@@ -20,7 +20,7 @@ Q. why the call to super(props)
 
 10a. Form Handling
 11. Lifecycle hooks
-12. Pure Components
+12. Pure Components/memo
 
 A regular compnent does not implement the shouldComponentUpdate method. It always returns true by default.
 A pure component implements shouldComponentUpdate with a shallow props and state comparison
@@ -47,10 +47,14 @@ a===c //true
 13. HOC
 14. Refs
 15. Portals
+Q Why we need portals
 16. Error Boundaries
+static getDerivedStaetFromError(error)
+componentDidCatch(error, info)
 17. Render Props
 18. Context API
 19. HTTP Calls
 20. Routing
 
 Hooks
+10-1 webinar -------- 2-4 resume reviews + mocks(html5, css, js)
