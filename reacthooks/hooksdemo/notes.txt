@@ -1,0 +1,4 @@
+1. Call hooks only from the top level.
+(Not from inside loops, nested fns, conditions)
+
+2. Call hooks  from react Functions not from JS functions

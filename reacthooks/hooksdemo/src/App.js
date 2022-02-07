@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import HookCounter from '../components/HookCounter';
-import ClassCounter from '../components/ClassCounter';
+import HookCounter from './components/HookCounter';
+import ClassCounter from './components/ClassCounter';
 
 function App() {
   return (
