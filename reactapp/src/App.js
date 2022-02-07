@@ -25,6 +25,7 @@ import ClickCounterTwo from './components/ClickCounterTwo';
 import ComponentC from './components/ComponentC';
 import { UserProvider } from './components/UserContext';
 import PostList from './components/PostList';
+import PostData from './components/PostData';
 
 
 function App() {
@@ -103,7 +104,9 @@ function App() {
         </UserProvider>
         */}
 
-        <PostList></PostList>
+        {/* <PostList></PostList> */}
+
+        <PostData></PostData>
       </header>
     </div>
   );
