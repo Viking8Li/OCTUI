@@ -2,3 +2,12 @@
 (Not from inside loops, nested fns, conditions)
 
 2. Call hooks  from react Functions not from JS functions
+
+useEffect(fetching data)
+useContext
+useReducer
+useReducer + useContext
+useReducer + useState
+useRef
+useMemo
+customHook
