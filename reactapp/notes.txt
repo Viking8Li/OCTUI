@@ -51,8 +51,11 @@ Q Why we need portals
 16. Error Boundaries
 static getDerivedStaetFromError(error)
 componentDidCatch(error, info)
-17. Render Props
-18. Context API
+17. Render Props(using props whose value is a function)
+18. Context API vs redux
+a. Create the Context
+b. Provide a context value
+c. Consume the context value
 19. HTTP Calls
 20. Routing
 

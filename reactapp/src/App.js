@@ -16,9 +16,16 @@ import ParentComponent from './components/ParentComponent';
 import PortalDemo from './components/PortalDemo';
 import PureComp from './components/PureComp';
 import RefsDemo from './components/RefsDemo';
+import User from './components/User';
 import UserGreeting from './components/UserGreeting';
 import Welcome from './components/Welcome';
 import WelcomeClass from './components/WelcomeClass';
+import HoverCounterTwo from './components/HoverCounterTwo';
+import ClickCounterTwo from './components/ClickCounterTwo';
+import ComponentC from './components/ComponentC';
+import { UserProvider } from './components/UserContext';
+import PostList from './components/PostList';
+
 
 function App() {
   return (
@@ -72,9 +79,31 @@ function App() {
 
         {/* <PortalDemo></PortalDemo> */}
 
-        <ClickCounter></ClickCounter>
-        <HoverCounter></HoverCounter>
+        {/* <ClickCounter></ClickCounter>
+        <HoverCounter></HoverCounter> */}
 
+        {/* <ClickCounterTwo></ClickCounterTwo>
+        <HoverCounterTwo></HoverCounterTwo>
+
+        <User render={(isLoggedIn) => isLoggedIn ? "John" : "Guest"} /> */}
+
+        {/* <Counter render={(count, incrementCount)=>(
+          <ClickCounterTwo count={count} incrementCount={incrementCount} />
+        )}
+        />
+
+        <Counter render={(count, incrementCount)=>(
+          <HoverCounterTwo count={count} incrementCount={incrementCount} />
+        )}
+        /> */}
+
+
+        {/* <UserProvider value="John">
+          <ComponentC />
+        </UserProvider>
+        */}
+
+        <PostList></PostList>
       </header>
     </div>
   );
