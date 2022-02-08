@@ -8,6 +8,8 @@ useContext
 useReducer
 useReducer + useContext
 useReducer + useState
+
+Assignment:
+Multiple Reducer(useReducer)
 useRef
-useMemo
 customHook
