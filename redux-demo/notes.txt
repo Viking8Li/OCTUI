@@ -6,3 +6,6 @@ Principals
 1. The state of ur entire application is stored in an object tree within a single store
 2. The only way to change the state is to emit an action, an object describing what happens
 3. To specify the state tree is tranformed by action, we create reducers 
+
+
+component -> redux
