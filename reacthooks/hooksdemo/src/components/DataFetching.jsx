@@ -8,7 +8,7 @@ function DataFetching() {
 
 	useEffect(() => {
 		axios
-			.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+			.get(`https://jsonplaceholder.typicode.com/posts/${idFromButtonClick}`)
 			.then(res => {
                 console.log(res)
                 setPost(res.data)
@@ -16,7 +16,7 @@ function DataFetching() {
 			.catch(err => {
 				console.log(err)
 			})
-	}, [id])
+	}, [idFromButtonClick])
 
 	const handleClick = () => {
 		setIdFromButtonClick(id)
