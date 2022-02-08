@@ -9,3 +9,5 @@ Principals
 
 
 component -> redux
+
+axios = http calls
