@@ -1,5 +1,4 @@
 import React from 'react';
-// import { buyCake } from './redux/cakes/cakeActions';
 import { connect } from 'react-redux';
 import { buyCake } from '../redux';
 
@@ -23,3 +22,6 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CakeContainer);
+
+
+//react-redux v7.1
