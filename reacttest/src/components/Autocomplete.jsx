@@ -21,7 +21,7 @@ function Autocomplete() {
    
       setActiveSuggestion(0)
       setFilteredSuggestions(setFilteredSuggestions)
-      setShowSuggestions(true)
+      setShowSuggestions(true) //not working
       setUserInput(e.currentTarget.value)
     
   };
@@ -62,10 +62,11 @@ function Autocomplete() {
   axios.get("https://jsonplaceholder.typicode.com/users")
         .then(res => {
             var temp = []
-            res.data.map((ob)=>{suggestions.push(ob.name)})
-            // setSuggestions(temp => [...temp])
+            res.data.map((ob)=>{temp.push(ob.name)})
+            
+            setSuggestions([...temp]) //not working
             console.log(suggestions)
-            // console.log(temp)
+            console.log(temp)
         })
         .catch(err => console.log(err))
   };
