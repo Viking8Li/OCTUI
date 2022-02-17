@@ -5,6 +5,7 @@ import * as api from '../api/users';
 //worker saga
 function* getUsers(){
     try{
+        //call is used to execute a promise, put
         const result = yield call(api.getUsers);
         //any code here
         //will be called 
@@ -19,7 +20,9 @@ function* watchGetUsersRequest(){
 }
 
 const userSagas = [
+    //fork will create and excute the sagas in parallel
     fork(watchGetUsersRequest)
+    // fork(anothersaga)
 ]
 
 export default userSagas;
