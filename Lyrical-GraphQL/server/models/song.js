@@ -12,7 +12,7 @@ const SongSchema = new Schema({
     ref: 'lyric'
   }]
 },{
-  usePushEach: true
+  usePushEach: true //$pushAll
 });
 
 SongSchema.statics.addLyric = function(id, content) {
