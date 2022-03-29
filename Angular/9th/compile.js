@@ -6,9 +6,9 @@ var myApp = angular
 
 myApp.directive('message', function($interpolate){
     return {
-        compile:function(tElement, tAttributes){
+        compile:function(iElement, tAttributes){
             console.log(tAttributes.text+ '- In Complie');
-            tElement.css("border","1px solid #C0C0C0")
+            iElement.css("border","1px solid #C0C0C0")
 
             return {
                 pre:function($scope, iElement, iAttributes){
