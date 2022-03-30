@@ -1,3 +1,36 @@
+// var myApp = angular.module("app", []) //DI
+// myApp.controller('emp', function($scope){
+//     function add(x,y){
+//         return x+y;
+//     }
+//     $scope.result = add(5,2);
+// }) 
+
+
+// var myApp = angular.module("app", []) //DI
+// myApp.controller('emp', function($scope,$timeout){
+//     function add(x,y, callback){
+//         $timeout(function(){
+//             callback(x + y);
+//         }, 1000)
+//     }
+
+//     var startTime = Date.now();
+
+    // add(5,2, function(result){
+    //     add(result,2, function(result){
+    //         add(result,1, function(result){
+    //             $scope.result = result;
+    //             $scope.elapsedTime = Date.now() - startTime
+    //         },function(error){/**/})
+    //     },function(error){/**/})
+    // },function(error){/**/})
+
+
+
+
+
+
 var myApp = angular.module("app", []) //DI
 myApp.controller('emp', function($scope,$timeout, $q){
     
@@ -30,6 +63,7 @@ myApp.controller('emp', function($scope,$timeout, $q){
         })
         .catch(function(error){
             console.log("Error Message:"+error)
+            $scope.result =error;
         })
         .finally(function(){
             $scope.elapsedTime = Date.now() - startTime
@@ -42,14 +76,5 @@ myApp.controller('emp', function($scope,$timeout, $q){
     //     $scope.result =result;
     //     $scope.elapsedTime = Date.now() - startTime
     // })
-
-    // add(5,2, function(result){
-    //     add(result, 3, function(result){
-    //         add(result, 1, function(result){
-    //             $scope.result =result;
-    //             $scope.elapsedTime = Date.now() - startTime
-    //         }, function(error){/**/})
-    //     }, function(error){/**/})
-    // }, function(error){/**/})
    
 }) 
