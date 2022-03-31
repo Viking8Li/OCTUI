@@ -25,21 +25,21 @@
 
 // module.exports.pi = 3.142;
 
-// var counter = function(arr){
-//     return 'There are '+arr.length+' elements in the array'
-// }
-// var adder = function(a,b){
-//     return `Sum:${a+b}`
-// }
+var counter = function(arr){
+    return 'There are '+arr.length+' elements in the array'
+}
+var adder = function(a,b){
+    return `Sum:${a+b}`
+}
 
-// var pi = 3.142;
+var pi = 3.142;
 
 
-// module.exports = {
-//     counter:counter,
-//     adder:adder,
-//     pi:pi
-// }
+module.exports = {
+    counter:counter,
+    adder:adder,
+    pi:pi
+}
 
 
 //AMD CommonJS
