@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="//code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
+    <script type="text/javascript">
+
+        // using globals so this can be run in separate steps.
+        var source_sapObjs = [];
+        var source_totalObjects = [];
+
+        function createArrays(){
+            jQuery.ajax({
+                url: 'https://raw.githubusercontent.com/dwyl/english-words/master/words.txt',
+                dataType: 'text',
+                type: 'GET'
+            }).done(function(textFile){
+
+                var words = textFile.split('\n');
+
+                // create an array with 20k and 40k records.
+                for(var i = 0; i < 20000; i++){
+                    source_sapObjs.push({name: words[i], sap_desc: 'DESC-' + words[i]});
+                }
+                for(var j = 0; j < 40000; j++){
+                    source_totalObjects.push({name: words[j], sap_desc: 'none'});
+                }
+
+                console.log("source_sapObjs.length:", source_sapObjs.length);
+                console.log("source_totalObjects.length:", source_totalObjects.length);
+                console.log("finished creating arrays");
+            });
+        }
+
+        function iter_arrays(){
+            var dummyObj = null;
+            var sapObjs = source_sapObjs.slice(); // create a copy so I can re-run this multiple times.
+            var totalObjects = source_totalObjects.slice(); // create a copy so I can re-run this multiple times.
+
+
+            var start = new Date().getTime();
+
+            // var totalObjectsHash = {};
+            // for(var k = 0; k < totalObjects.length; k++){
+            //     totalObjectsHash[totalObjects[k].name] = totalObjects[k];
+            // }
+
+            for (var i = 0, sapLength = sapObjs.length; i < sapLength; i++) {
+                    dummyObj = _.find(totalObjects,{name:sapObjs[i].name});
+                    // dummyObj = totalObjectsHash[sapObjs[i].name];
+                    dummyObj["sap_desc"] = sapObjs[i].sap_desc;
+                    dummyObj.source = "";
+            }
+
+            var end = new Date().getTime();
+            var time = end - start;
+            console.log('Execution time: ' + time);
+            console.log(_.map(totalObjects, 'sap_desc'));
+
+        }
+
+    </script>
+
+</head>
+<body>
+</body>
+</html>
