@@ -1,4 +1,4 @@
-var fs = require('fs')
+const fs = require('fs')
 
 //sync
 // try{
@@ -53,12 +53,12 @@ var fs = require('fs')
 //         }
 // })
 
-// fs.rmdir('folder', (err)=>{
-//             if(err!=null){
-//                 console.log(err.message)
-//             }
-//             else{
-//                 console.log("Dir removed successfully")
-//             }
-// })
+fs.rmdir('folder', (err)=>{
+            if(err!=null){
+                console.log(err.message)
+            }
+            else{
+                console.log("Dir removed successfully")
+            }
+})
 
